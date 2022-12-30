@@ -12,11 +12,11 @@ For example, this system (already at an early stage) was used in a virtual memor
 
 __VirtualMemory::Core D_VirtualMemoryManager;
 
-E_Request(D_VirtualMemoryManager, "get --0 --0");
+__Kernel::E_Request(D_VirtualMemoryManager, "get --0 --0");
 ```
 
 ```cpp
-/* VM_Core.cpp */
+/* VM_Core.hpp */
 
 //...
 
