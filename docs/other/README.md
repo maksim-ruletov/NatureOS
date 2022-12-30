@@ -31,7 +31,7 @@ __StandardLibrary::Situate E_BridgeAPI (std::string D_RequestHeader, __StandardL
 //..
 ```
 
-`D_RequestHeader` и `D_RequestBody` - это и есть получаемые данные
+`D_RequestHeader` and `D_RequestBody` are the received data
 
 ```cpp
 std::cout << D_RequestHeader; // "get"
