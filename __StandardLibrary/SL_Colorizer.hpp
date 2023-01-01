@@ -75,11 +75,11 @@
                 Situate D_Situate;
                 D_Situate.E_SetHeader("__StandardLibrary::ColorTemplater::E_DropTable()");
 
-                D_Situate.E_SetBody(E_ColorizeFront("@ColorTemplater::E_Wrap", 197, 57, 235) + " returned success code!");
+                D_Situate.E_SetBody(E_ColorizeFront("@ColorTemplater::E_DropTable", 197, 57, 235) + " returned success code!");
                 D_Situate.E_SetCode(0);
 
                 for (::size_t D_Iterator = 0; D_Iterator < this->D_Templates.size(); D_Iterator++) {
-                    D_Situate.E_PushDetail(this->E_Wrap("Name " + this->D_Templates.at(D_Iterator).at(0), this->D_Templates.at(D_Iterator).at(0)).E_GetDetails().at(0));
+                    D_Situate.E_PushDetail("Name: " + this->E_Wrap(this->D_Templates.at(D_Iterator).at(0), this->D_Templates.at(D_Iterator).at(0)).E_GetDetails().at(0));
                 }
 
                 return D_Situate;
