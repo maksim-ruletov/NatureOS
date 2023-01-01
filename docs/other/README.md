@@ -71,3 +71,7 @@ __StandardLibrary::ColorTemplater D_ColorTemplater;
 /* first argument - template name, second - the color with which the line will start, third - the color at which the line ends */
 D_ColorTemplater.E_Push("Greet-Color", D_ColorTemplater.E_GenerateFront(255, 0, 0), D_ColorTemplater.E_GenerateFront(255, 255, 255));
 ```
+
+If you want to see all Color Templates use `D_ColorTemplater.E_DropTable()` and you can see some like this:
+
+<img src="https://github.com/ruletkasuperstar/NatureOS/blob/main/__Sources/Screenshot_2.png">
