@@ -49,4 +49,25 @@ This mechanism allows you to compose simple text templates for further use!
 
 ```cpp
 #include "./__StandardLibrary/SL_Template.hpp"
+#include <iostream>
+
+__StandardLibrary::Templater D_Templater;
+
+D_Templater.E_Push("welcome-message", "Welcome!");
+
+std::cout << D_Templater.E_Drop("welcome-message"); // Welcome!
+```
+
+# Color tTmplating Mechanism (CTM)
+
+This mechanism works the same as the previous one but with colors.
+
+```cpp
+#include "./__StandardLibrary/SL_Colorizer.hpp"
+#include <iostream>
+
+__StandardLibrary::ColorTemplater D_ColorTemplater;
+
+/* first argument - template name, second - the color with which the line will start, third - the color at which the line ends */
+D_ColorTemplater.E_Push("Greet-Color", D_ColorTemplater.E_GenerateFront(255, 0, 0), D_ColorTemplater.E_GenerateFront(255, 255, 255));
 ```
