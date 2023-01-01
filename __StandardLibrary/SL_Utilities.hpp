@@ -63,6 +63,37 @@
 
             return false;
         }
+
+        std::string E_Trim (const std::string& S_String,const std::string& S_WhiteSpaceTemplate = " \t")
+        {
+            const auto strBegin = S_String.find_first_not_of(S_WhiteSpaceTemplate);
+            if (strBegin == std::string::npos)
+                return "";
+
+            const auto strEnd = S_String.find_last_not_of(S_WhiteSpaceTemplate);
+            const auto strRange = strEnd - strBegin + 1;
+
+            return S_String.substr(strBegin, strRange);
+        }
+
+        std::string E_Reduce (const std::string& S_String, const std::string& fill = " ", const std::string& S_WhiteSpaceTemplate = " \t")
+        {
+            auto result = E_Trim(S_String, S_WhiteSpaceTemplate);
+
+            auto beginSpace = result.find_first_of(S_WhiteSpaceTemplate);
+            while (beginSpace != std::string::npos)
+            {
+                const auto endSpace = result.find_first_not_of(S_WhiteSpaceTemplate, beginSpace);
+                const auto range = endSpace - beginSpace;
+
+                result.replace(beginSpace, range, fill);
+
+                const auto newStart = beginSpace + fill.length();
+                beginSpace = result.find_first_of(S_WhiteSpaceTemplate, newStart);
+            }
+
+            return result;
+        }
     }
 
 #endif
