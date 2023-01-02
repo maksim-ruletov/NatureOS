@@ -36,10 +36,14 @@
             E_Output(D_OutputMessage);
         }
 
+        /**
+         * Debugger can recive requests and debug system.
+         */
         class Debugger {
         public:
-            /* This module can use BridgeAPI */
-            bool E_Bridge () { return true; }
+            bool E_Bridge () {
+                return true;
+            }
 
             Situate E_BridgeAPI (std::string D_RequestHeader, Composition D_RequestBody) {
                 Situate D_Situate;
@@ -58,6 +62,6 @@
                 return D_Situate;
             }
         };
-    }
+    } /* Include debug toolkit */
 
 #endif
