@@ -47,8 +47,8 @@
 
                 for (std::vector<std::string> D_Template : this->D_Templates) {
                     if (D_Template.at(0).compare(S_TemplateName) == 0) {
-                        D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("@Templater::E_Push", 197, 57, 235) + " returned error code!");
-                        D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFront("@Template", 57, 146, 235) + " with name " + __StandardLibrary::E_ColorizeFront(S_TemplateName, 255, 0, 0) + " already saved!");
+                        D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("@Templater::E_Push", 197, 57, 235) + " returned error code!");
+                        D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFont("@Template", 57, 146, 235) + " with name " + __StandardLibrary::E_ColorizeFont(S_TemplateName, 255, 0, 0) + " already saved!");
                         D_Situate.E_SetCode(1);
 
                         return D_Situate;
@@ -57,8 +57,8 @@
 
                 this->D_Templates.push_back({ S_TemplateName, S_Template });
 
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("@Templater::E_Push", 197, 57, 235) + " returned success code!");
-                D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFront("@Template", 57, 146, 235) + " successfully saved!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("@Templater::E_Push", 197, 57, 235) + " returned success code!");
+                D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFont("@Template", 57, 146, 235) + " successfully saved!");
                 D_Situate.E_SetCode(0);
 
                 return D_Situate;
@@ -75,7 +75,7 @@
 
                 for (std::vector<std::string> D_Template : this->D_Templates) {
                     if (D_Template.at(0).compare(S_TemplateName) == 0) {
-                        D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("@Templater::E_Drop", 197, 57, 235) + " returned success code!");
+                        D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("@Templater::E_Drop", 197, 57, 235) + " returned success code!");
                         D_Situate.E_PushDetail(D_Template.at(1));
                         D_Situate.E_SetCode(0);
 
@@ -83,13 +83,13 @@
                     }
                 }
 
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("@Templater::E_Drop", 197, 57, 235) + " returned error code!");
-                D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFront("@Template", 57, 146, 235) + " with name " + __StandardLibrary::E_ColorizeFront(S_TemplateName, 255, 0, 0) + " not exist!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("@Templater::E_Drop", 197, 57, 235) + " returned error code!");
+                D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFont("@Template", 57, 146, 235) + " with name " + __StandardLibrary::E_ColorizeFont(S_TemplateName, 255, 0, 0) + " not exist!");
                 D_Situate.E_SetCode(1);
 
                 return D_Situate;
             }
         };
-    }
+    } /* Include UTM module */
 
 #endif
