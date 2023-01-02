@@ -223,6 +223,26 @@
 
                 return D_Situate;
             }
+
+            __StandardLibrary::Situate E_ReadDirectory (std::string D_DirectoryName) {
+                __StandardLibrary::Situate D_Situate;
+                D_Situate.E_SetHeader("__Kernel::__Drivers::E_ReadDirectory()");
+
+                for (const auto& entry : std::filesystem::directory_iterator(D_DirectoryName)) {
+                    std::string D_Name = __StandardLibrary::E_Split(entry.path().string(), "/").at(__StandardLibrary::E_Split(entry.path().string(), "/").size() - 1);
+
+                    if (entry.is_directory()) {
+                        D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeBack(__StandardLibrary::E_ColorizeFront(D_Name, 0, 0, 0), 235, 235, 52));
+                    }
+                    else {
+                        D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeBack(__StandardLibrary::E_ColorizeFront(D_Name, 0, 0, 0), 104, 235, 52));
+                    }
+                }
+
+                D_Situate.E_SetCode(0);
+
+                return D_Situate;
+            }
         } 
     }
 

@@ -9,6 +9,14 @@
         #include <string>
     #endif
 
+    #ifndef _ALGORITHM_
+        #include <algorithm>
+    #endif
+
+    #ifndef _CCTYPE_
+        #include <cctype>
+    #endif
+
     namespace __StandardLibrary {
         typedef std::vector<std::vector<std::string>> Composition;
 
@@ -93,6 +101,11 @@
             }
 
             return result;
+        }
+
+        bool E_IsNumber (const std::string& S_String)
+        {
+            return !S_String.empty() && std::find_if(S_String.begin(), S_String.end(), [](unsigned char c) { return !std::isdigit(c); }) == S_String.end();
         }
     }
 
