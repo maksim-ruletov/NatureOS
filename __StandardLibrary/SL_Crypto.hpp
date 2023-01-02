@@ -22,7 +22,7 @@
     #endif
 
     namespace __StandardLibrary {
-        const std::vector<std::vector<std::string>> S_es11_CryptoAlphabet = {
+        const __StandardLibrary::Composition S_es11_CryptoAlphabet = {
             /* Letters in lower case */
             { "a", "001" }, { "b", "002" }, { "c", "003" }, { "d", "004" }, { "e", "007" },
             { "f", "008" }, { "h", "009" }, { "g", "010" }, { "j", "011" }, { "i", "012" },
@@ -48,29 +48,29 @@
             { ".", "330" }
         };
 
-        Situate E_Encode (std::string D_Text, std::string D_Algorythm) {
+        Situate E_Encode (std::string D_Text, const std::string S_Algorythm) {
             Situate D_Situate;
             D_Situate.E_SetHeader("__StandardLibrary::E_Encode()");
 
             std::string D_EncodedText = "";
 
-            if (D_Algorythm.compare("es11") == 0) {
+            if (S_Algorythm.compare("es11") == 0) {
                 for (::size_t D_Iterator = 0; D_Iterator < D_Text.size(); D_Iterator++) {
                     for (::size_t D_IteratorC = 0; D_IteratorC < S_es11_CryptoAlphabet.size(); D_IteratorC++) {
                         if (S_es11_CryptoAlphabet.at(D_IteratorC).at(0).at(0) == D_Text.at(D_Iterator)) {
                             D_EncodedText += S_es11_CryptoAlphabet.at(D_IteratorC).at(1);
-                            D_EncodedText += "_";
+                            D_EncodedText += " ";
                         }
                     }
                 }
 
                 D_EncodedText.pop_back();
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("::E_Encode", 197, 57, 235) + " returned success code!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("::E_Encode", 197, 57, 235) + " returned success code!");
                 D_Situate.E_PushDetail(D_EncodedText);
                 D_Situate.E_SetCode(0);
             }
             else {
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("::E_Encode", 197, 57, 235) + " returned error code!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("::E_Encode", 197, 57, 235) + " returned error code!");
                 D_Situate.E_PushDetail("Unknown encoding algorythm!");
                 D_Situate.E_SetCode(1);
             }
@@ -78,14 +78,14 @@
             return D_Situate;
         }
 
-        Situate E_Decode (std::string D_Text, std::string D_Algorythm) {
+        Situate E_Decode (std::string D_Text, const std::string S_Algorythm) {
             Situate D_Situate;
             D_Situate.E_SetHeader("__StandardLibrary::E_Decode()");
 
             std::string D_DecodedText = "";
 
-            if (D_Algorythm.compare("es11") == 0) {
-                std::vector<std::string> D_ParsedText = E_Split(D_Text, "_");
+            if (S_Algorythm.compare("es11") == 0) {
+                std::vector<std::string> D_ParsedText = E_Split(D_Text, " ");
 
                 for (std::string D_TextPart : D_ParsedText) {
                     for (::size_t D_Iterator = 0; D_Iterator < S_es11_CryptoAlphabet.size(); D_Iterator++) {
@@ -95,18 +95,18 @@
                     }
                 }
 
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("::E_Decode", 197, 57, 235) + " returned success code!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("::E_Decode", 197, 57, 235) + " returned success code!");
                 D_Situate.E_PushDetail(D_DecodedText);
                 D_Situate.E_SetCode(0);
             }
             else {
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("::E_Decode", 197, 57, 235) + " returned error code!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("::E_Decode", 197, 57, 235) + " returned error code!");
                 D_Situate.E_PushDetail("Unknown encoding algorythm!");
                 D_Situate.E_SetCode(1);
             }
 
             return D_Situate;
         }
-    }
+    } /* Include function to encode and decode */
 
 #endif
