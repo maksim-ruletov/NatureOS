@@ -17,6 +17,6 @@
         void E_Input (std::string& D_InputString) {
             std::getline(std::cin, D_InputString);
         }
-    }
+    } /* Include screen manipulation methods */
     
 #endif
