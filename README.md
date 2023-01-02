@@ -17,3 +17,14 @@ Everything is super easy! To get started, you go to this site: http://www.equati
 ## How i can get more info?
 
 In `docs` folder!
+
+## To do
+
+- CPU simulation
+- Processes and Process Manager
+- Advanced memory work
+- Full database manager
+- Network manager
+- Custom shells
+- User applications
+- Animations
