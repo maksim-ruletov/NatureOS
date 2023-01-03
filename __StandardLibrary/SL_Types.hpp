@@ -9,7 +9,7 @@
         #include <string>
     #endif
 
-    namespace __StandardLibary {
+    namespace __StandardLibrary {
         typedef std::vector<std::string> _CompositionPart;
         typedef std::vector<std::vector<std::string>> _Composition;
     } /* Include custom types */
