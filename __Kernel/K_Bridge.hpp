@@ -17,8 +17,8 @@
             __StandardLibrary::Composition D_Composition;
 
             if (!D_Getter.E_Bridge()) {
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("::E_Request", 197, 57, 235) + " returned error code!");
-                D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFront("@Getter", 57, 146, 235) + " blocked BridgeAPI!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("::E_Request", 197, 57, 235) + " returned error code!");
+                D_Situate.E_PushDetail(__StandardLibrary::E_ColorizeFont("@Getter", 57, 146, 235) + " blocked BridgeAPI!");
                 D_Situate.E_SetCode(1);
 
                 return D_Situate;
