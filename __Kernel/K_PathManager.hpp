@@ -47,7 +47,7 @@
 
                 this->D_CurrentPath += D_NewPath;
 
-                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFront("@Path::E_Append", 197, 57, 235) + " returned success code!");
+                D_Situate.E_SetBody(__StandardLibrary::E_ColorizeFont("@Path::E_Append", 197, 57, 235) + " returned success code!");
                 D_Situate.E_SetCode(0);
 
                 return D_Situate;
