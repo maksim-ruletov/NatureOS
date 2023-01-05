@@ -12,6 +12,8 @@
     namespace __StandardLibrary {
         typedef std::vector<std::string> _CompositionPart;
         typedef std::vector<std::vector<std::string>> _Composition;
+        typedef std::vector<std::vector<::size_t>> _SizeComposition;
+        typedef std::vector<::size_t> _SizeCompositionPart;
     } /* Include custom types */
 
 #endif
