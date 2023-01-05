@@ -101,9 +101,9 @@ D_ConfigManager.E_OpenFile("path/to/any.config");
 And now you can:
 
 ```cpp
-D_ConfigManager.E_Push("USE_DEBUG", "true); // push items
+D_ConfigManager.E_Push("USE_DEBUG", "true"); // push items
 D_ConfigManager.E_Get("USE_DEBUG").E_DropDataByIndex(1); // get item value
-D_ConfigManager.E_Set("USE_DEBUG", "false); // set new value to item
+D_ConfigManager.E_Set("USE_DEBUG", "false"); // set new value to item
 
 D_ConfigManager.E_DropContent(); // save all to file
 ```
