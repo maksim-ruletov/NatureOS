@@ -75,3 +75,41 @@ D_ColorTemplater.E_Push("Greet-Color", D_ColorTemplater.E_GenerateFront(255, 0, 
 If you want to see all Color Templates use `D_ColorTemplater.E_DropTable()` and you can see some like this:
 
 <img src="https://github.com/ruletkasuperstar/NatureOS/blob/main/__Sources/Screenshot_2.png">
+
+# Configuration
+
+This module allows to create and use `.config` files!
+
+```cpp
+#include "./__Kernel/K_Configuration.hpp"
+
+__Kernel::CFile D_ConfigManager;
+```
+
+Create any cfg file
+
+```txt
+// this is your config file
+```
+
+Next:
+
+```cpp
+D_ConfigManager.E_OpenFile("path/to/any.config");
+```
+
+And now you can:
+
+```cpp
+D_ConfigManager.E_Push("USE_DEBUG", "true); // push items
+D_ConfigManager.E_Get("USE_DEBUG").E_DropDataByIndex(1); // get item value
+D_ConfigManager.E_Set("USE_DEBUG", "false); // set new value to item
+
+D_ConfigManager.E_DropContent(); // save all to file
+```
+
+```txt
+// this is your config file
+USE_DEBUG=false
+
+```
