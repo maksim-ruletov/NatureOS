@@ -50,7 +50,7 @@
             ColorTemplater D_ColorTemplater;
             D_ColorTemplater.E_Push("Module-Element", D_ColorTemplater.E_GenerateFont(57, 146, 235), D_ColorTemplater.E_GenerateFont(255, 255, 255));
 
-            D_OutputMessage += "\t" + D_ColorTemplater.E_Wrap(D_Corrdinator.E_DropSender(), "Module-Element").E_GetDetails().at(0) + " responded: " + D_Corrdinator.E_DropBody();
+            D_OutputMessage += "\t" + D_ColorTemplater.E_Wrap(D_Corrdinator.E_DropSender(), "Module-Element").E_GetDetails().at(0) + " responded: " + D_Corrdinator.E_DropBody() + "\n";
 
             E_Output(D_OutputMessage);
         }
