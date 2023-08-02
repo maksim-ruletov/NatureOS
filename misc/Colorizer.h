@@ -4,7 +4,7 @@
 
 #include <string>
 #include "./Situate.hpp"
-#include "./Utilities.hpp"
+#include "./Utilities.h"
 
 namespace misc {
     std::string E_ColorizeFont (const std::string S_Content, const ::size_t S_Red, const ::size_t S_Green, const ::size_t S_Blue) {
