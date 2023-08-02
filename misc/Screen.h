@@ -6,12 +6,19 @@
 #include <string>
 
 namespace misc {
-    void E_Output (std::string D_Content) {
-        std::cout << D_Content;
+    void Clear()
+    {
+        system("cls");
     }
 
-    void E_Input (std::string& D_InputString) {
-        std::getline(std::cin, D_InputString);
+    void Output (std::string content)
+    {
+        std::cout << content;
+    }
+
+    void Input (std::string& inputString)
+    {
+        std::getline(std::cin, inputString);
     }
 }
 
