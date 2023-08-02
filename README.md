@@ -2,6 +2,8 @@
 
 Welcome to NatureOS official repository!
 
+<img src="https://github.com/ruletkasuperstar/NatureOS/blob/main/__Sources/shell_preview.png">
+
 ## What is it?
 
 Perhaps you will laugh or think that this is stupid - BUT! This is my first fairly large project - NatureOS Pseudo Operating System. I’ll make a reservation right away - I don’t understand anything in the development of operating systems and with the help of C / C ++ and their capabilities I roughly implement the capabilities of conventional operating systems.
