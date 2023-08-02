@@ -14,7 +14,7 @@ namespace arch {
     public:
         void Start()
         {
-            
+            misc::E_Output(misc::E_ColorizeFont("Welcome to NatureOS shell!", 255, 0, 0));
         }
     };
 } // #arch
