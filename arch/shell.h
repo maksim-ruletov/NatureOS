@@ -5,7 +5,7 @@
  */
 #define L0_SHELL_H
 
-#include "../misc/Screen.hpp"
+#include "../misc/Screen.h"
 #include "../misc/Colorizer.hpp"
 
 namespace arch {
