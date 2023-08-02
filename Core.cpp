@@ -1,5 +1,7 @@
-#include "./__Kernel/K_Core.hpp"
+#include "./arch/shell.h"
 
 int main() {
-    __Kernel::E_EnterKernel(true);
+    arch::Shell shell;
+
+    shell.Start();
 }
