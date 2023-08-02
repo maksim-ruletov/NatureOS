@@ -2,7 +2,7 @@
 
 Welcome to NatureOS official repository!
 
-<img src="https://github.com/ruletkasuperstar/NatureOS/blob/main/__Sources/shell_preview.png">
+<img src="https://github.com/ruletkasuperstar/NatureOS/blob/main/docs/images/shell_preview.png">
 
 ## What is it?
 
