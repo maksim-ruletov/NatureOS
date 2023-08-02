@@ -10,7 +10,7 @@
 namespace misc {
     typedef std::vector<std::vector<std::string>> Composition;
 
-    std::vector<std::string> E_Split (std::string D_String, std::string D_Delimiter) {
+    std::vector<std::string> Split (std::string D_String, std::string D_Delimiter) {
         ::size_t
             D_Start = 0,
             D_Finish,
@@ -30,7 +30,7 @@ namespace misc {
     }
 
     template<typename T>
-    std::vector<T> E_Delete (std::vector<T> D_Vector, ::size_t D_Index) {
+    std::vector<T> Delete (std::vector<T> D_Vector, ::size_t D_Index) {
         std::vector<T> D_NewVector;
 
         for (::size_t D_Iterator = 0; D_Iterator < D_Vector.size(); D_Iterator++) {
@@ -42,7 +42,7 @@ namespace misc {
         return D_NewVector;
     }
 
-    std::vector<std::string> E_Cut (std::vector<std::string> D_Vector, ::size_t D_Start, ::size_t D_Finish) {
+    std::vector<std::string> Cut (std::vector<std::string> D_Vector, ::size_t D_Start, ::size_t D_Finish) {
         std::vector<std::string> D_Result;
 
         for (::size_t D_Iterator = D_Start; D_Iterator < D_Finish; D_Iterator++) {
@@ -52,7 +52,7 @@ namespace misc {
         return D_Result;
     }
 
-    bool E_Has (std::vector<std::string> D_Vector, std::string D_Element) {
+    bool Has (std::vector<std::string> D_Vector, std::string D_Element) {
         for (std::string D_Item : D_Vector) {
             if (D_Item.compare(D_Element) == 0) {
                 return true;
@@ -62,7 +62,7 @@ namespace misc {
         return false;
     }
 
-    std::string E_Trim (const std::string& S_String,const std::string& S_WhiteSpaceTemplate = " \t")
+    std::string Trim (const std::string& S_String,const std::string& S_WhiteSpaceTemplate = " \t")
     {
         const auto strBegin = S_String.find_first_not_of(S_WhiteSpaceTemplate);
         if (strBegin == std::string::npos)
@@ -74,9 +74,9 @@ namespace misc {
         return S_String.substr(strBegin, strRange);
     }
 
-    std::string E_Reduce (const std::string& S_String, const std::string& fill = " ", const std::string& S_WhiteSpaceTemplate = " \t")
+    std::string Reduce (const std::string& S_String, const std::string& fill = " ", const std::string& S_WhiteSpaceTemplate = " \t")
     {
-        auto result = E_Trim(S_String, S_WhiteSpaceTemplate);
+        auto result = Trim(S_String, S_WhiteSpaceTemplate);
 
         auto beginSpace = result.find_first_of(S_WhiteSpaceTemplate);
         while (beginSpace != std::string::npos)
@@ -93,7 +93,7 @@ namespace misc {
         return result;
     }
 
-    bool E_IsNumber (const std::string& S_String)
+    bool IsNumber (const std::string& S_String)
     {
         return !S_String.empty() && std::find_if(S_String.begin(), S_String.end(), [](unsigned char c) { return !std::isdigit(c); }) == S_String.end();
     }

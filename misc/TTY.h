@@ -45,7 +45,8 @@ namespace misc
 
                 misc::Input(UserInput);
 
-                int checker = this->CheckIfExists(UserInput);
+                std::vector<std::string> parsedCommand = misc::Split(UserInput, " ");
+                int checker = this->CheckIfExists(parsedCommand.at(0));
 
                 if (checker == -1)
                 {
@@ -54,8 +55,10 @@ namespace misc
                 else
                 {
                     Command command = this->_commands.at(checker);
+                    
+                    parsedCommand = misc::Delete<std::string>(parsedCommand, 0);
 
-                    command.executor(std::vector<std::string>{ "1" });
+                    command.executor(parsedCommand);
                 }
             }
         }
