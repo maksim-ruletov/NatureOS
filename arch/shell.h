@@ -7,6 +7,7 @@
 
 #include "../misc/Screen.h"
 #include "../misc/Colorizer.h"
+#include "../misc/TTY.h"
 
 namespace arch {
     class Shell
@@ -14,7 +15,18 @@ namespace arch {
     public:
         void Start()
         {
-            misc::E_Output(misc::E_ColorizeFont("Welcome to NatureOS shell!", 255, 0, 0));
+            misc::TTY tty;
+
+            misc::Clear();
+
+            misc::Output(misc::E_ColorizeFont("Welcome to NatureOS shell!\n", 255, 0, 0));
+
+            tty.CreateCommand("test", [](std::vector<std::string> arguments)
+            {
+                misc::Output("test\n");
+            });
+
+            tty.StartInteractive();
         }
     };
 } // #arch
