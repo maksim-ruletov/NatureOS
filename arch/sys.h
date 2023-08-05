@@ -7,7 +7,7 @@
 
 namespace arch
 {
-    const std::string SysVersion = "0.0.0";
+    const std::string SysVersion = "0.1.0";
     const std::string SysName = "Nature OS (POS)";
     const std::string SysAuthor = "ruletkasuperstar";
 
