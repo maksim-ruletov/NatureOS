@@ -5,9 +5,15 @@
  */
 #define L0_SHELL_H
 
+#include <vector>
+#include <string>
+#include <cstdint>
+
 #include "../misc/Screen.h"
 #include "../misc/Colorizer.h"
 #include "../misc/TTY.h"
+
+#include "../fs/translated.h"
 
 #include "./sys.h"
 
@@ -32,7 +38,9 @@ namespace arch {
                 misc::Output("\n");
                 misc::Output(misc::ColorizeFont("sys", 0, 100, 255) + " - information about system\n");
                 misc::Output(misc::ColorizeFont("install", 0, 100, 255) + " - install the NatureOS\n");
-                misc::Output(misc::ColorizeFont("detect", 0, 100, 255) + " - detect already installed NatureOS");
+                misc::Output(misc::ColorizeFont("detect", 0, 100, 255) + " - detect already installed NatureOS\n");
+                misc::Output(misc::ColorizeFont("testw", 0, 100, 255) + " - test system perfomance\n");
+                misc::Output(misc::ColorizeFont("exit", 0, 100, 255) + " - log out from NatureOS\n");
             });
 
             tty.CreateCommand("sys", [](std::vector<std::string> arguments)
@@ -78,7 +86,80 @@ namespace arch {
 
             tty.CreateCommand("detect", [](std::vector<std::string> arguments)
             {
-                
+                if (fs::translated::DirectoryExist("./natureos"))
+                {
+                    misc::Output("NatureOS founded. To check the system performance, write the testw command\n");
+                }
+                else
+                {
+                    misc::Output("NatureOS not founded. To install it write install command\n");
+                }
+            });
+
+            tty.CreateCommand("testw", [](std::vector<std::string> arguments)
+            {
+                const std::vector<std::string> Markers {
+                    misc::ColorizeBackground("  ", 255, 50, 0),
+                    misc::ColorizeBackground("  ", 0, 255, 50),
+                    misc::ColorizeBackground("  ", 255, 255, 0),
+                };
+
+                std::uint8_t errors = 0;
+                std::uint8_t warnings = 0;
+
+                misc::Output("\n");
+
+                for (std::string path : RequiredDirectories)
+                {
+                    if (!fs::translated::DirectoryExist(path))
+                    {
+                        misc::Output(Markers.at(0) + " >> Path " + path + " not found, but required!\n");
+                        errors++;
+                    }
+                    else
+                    {
+                        misc::Output(Markers.at(1) + " >> Path " + path + " founded!\n");
+                    }
+                }
+
+                for (std::string path : RequiredUserDirectories)
+                {
+                    if (!fs::translated::DirectoryExist(path))
+                    {
+                        misc::Output(Markers.at(0) + " >> User path " + path + " not found, but required!\n");
+                        errors++;
+                    }
+                    else
+                    {
+                        misc::Output(Markers.at(1) + " >> User path " + path + " founded!\n");
+                    }
+                }
+
+                for (std::string path : OptionalDirectories)
+                {
+                    if (!fs::translated::DirectoryExist(path))
+                    {
+                        misc::Output(Markers.at(2) + " >> Path " + path + " not found.\n");
+                        warnings++;
+                    }
+                    else
+                    {
+                        misc::Output(Markers.at(1) + " >> User path " + path + " founded!\n");
+                    }
+                }
+
+                misc::Output("\n");
+
+                misc::Output("Testing result:\n");
+                misc::Output(Markers.at(0) + " errors: " + std::to_string(errors) + "\n");
+                misc::Output(Markers.at(2) + " warnings: " + std::to_string(warnings) + "\n");
+
+                misc::Output("\n");
+            });
+
+            tty.CreateCommand("exit", [&tty](std::vector<std::string> arguments)
+            {
+                tty.Exit();
             });
 
             tty.StartInteractive();
