@@ -7,9 +7,9 @@
 #include <algorithm>
 #include <cctype>
 
-namespace misc {
-    typedef std::vector<std::vector<std::string>> Composition;
+#include "./Types.h"
 
+namespace misc {
     std::vector<std::string> Split (std::string D_String, std::string D_Delimiter) {
         ::size_t
             D_Start = 0,
