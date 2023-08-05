@@ -21,6 +21,7 @@ namespace misc
     private:
         std::vector<Command> _commands;
         std::string _screenPrefix = "";
+        bool _break = false;;
     public:
         void CreateCommand(std::string commnad, std::function<void(std::vector<std::string>)> function)
         {
@@ -42,6 +43,11 @@ namespace misc
         {
             while(true)
             {
+                if (this->_break)
+                {
+                    break;
+                }
+                
                 misc::Output(this->_screenPrefix);
 
                 std::string UserInput;
@@ -84,6 +90,11 @@ namespace misc
         void SetScreenPrefix(std::string newScreenPrefix)
         {
             this->_screenPrefix = newScreenPrefix;
+        }
+
+        void Exit()
+        {
+            this->_break = true;
         }
     };
 }
