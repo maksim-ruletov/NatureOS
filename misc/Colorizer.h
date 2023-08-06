@@ -3,7 +3,6 @@
 #define L1_COLORIZER_H
 
 #include <string>
-#include "./Situate.hpp"
 #include "./Utilities.h"
 
 namespace misc {
