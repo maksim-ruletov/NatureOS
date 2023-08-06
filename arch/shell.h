@@ -15,6 +15,8 @@
 
 #include "../fs/translated.h"
 
+#include "../installer/main.h"
+
 #include "./sys.h"
 
 namespace arch {
@@ -80,7 +82,28 @@ namespace arch {
                 }
                 else
                 {
-                    
+                    if (arguments.at(0).compare("-f") == 0)
+                    {
+                        if (fs::translated::DirectoryExist("./natureos"))
+                        {
+                            misc::Output(misc::ColorizeFont("Installation failed", 255, 50, 50));
+                            misc::Output("\n");
+                            misc::Output("\n");
+                            misc::Output("Looks like NatureOS already installed. To uninstall it write uninstall command\n");
+                        }
+                        else
+                        {
+                            misc::Output(misc::ColorizeFont("Starting full install...", 0, 255, 0));
+                            misc::Output("\n");
+                            misc::Output("\n");
+
+                            int status = installer::CreateFileSystem("f");
+
+                            misc::Output("\n");
+                            misc::Output("\n");
+                            misc::Output(status == 0 ? "Installation successfuly finished\n" : "Installation failed!\n");
+                        }
+                    }
                 }
             });
 
