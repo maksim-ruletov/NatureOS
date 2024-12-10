@@ -10,6 +10,8 @@
 
 #include "../../installer/main.h"
 
+#include "../fs/translated.h"
+
 namespace arch
 {
     namespace command

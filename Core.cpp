@@ -1,4 +1,3 @@
-#include "./fs/translated.h"
 #include "./arch/shell.h"
 
 int main() {

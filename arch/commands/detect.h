@@ -8,6 +8,8 @@
 #include "../../misc/Screen.h"
 #include "../../misc/Colorizer.h"
 
+#include "../fs/translated.h"
+
 namespace arch
 {
     namespace command 

@@ -12,19 +12,16 @@ namespace arch
 {
     namespace command
     {
-        void Help(std::vector<std::string> arguments, std::vector<misc::Command> commands)
+        void Help(std::vector<std::string> arguments)
         {
-            std::string commandPrompt = "";
-
             misc::Output(misc::ColorizeFont("NatureShell help list", 0, 255, 255));
             misc::Output("\n");
             misc::Output("\n");
-
-            for (misc::Command command : commands) {
-                commandPrompt += misc::ColorizeFont(command.command, 0, 100, 255) + " - " + command.description + "\n";
-            }
-
-            misc::Output(commandPrompt);
+            misc::Output(misc::ColorizeFont("sys", 0, 100, 255) + " - information about system\n");
+            misc::Output(misc::ColorizeFont("install", 0, 100, 255) + " - install the NatureOS\n");
+            misc::Output(misc::ColorizeFont("detect", 0, 100, 255) + " - detect already installed NatureOS\n");
+            misc::Output(misc::ColorizeFont("testw", 0, 100, 255) + " - test system perfomance\n");
+            misc::Output(misc::ColorizeFont("exit", 0, 100, 255) + " - log out from NatureOS\n");
         }
     }
 }

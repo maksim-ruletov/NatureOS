@@ -13,7 +13,6 @@ namespace misc
     struct Command
     {
         std::string command;
-        std::string description;
         std::function<void(std::vector<std::string>)> executor;
     };
 
@@ -22,20 +21,19 @@ namespace misc
     private:
         std::vector<Command> _commands;
         std::string _screenPrefix = "";
-        bool _break = false;
+        bool _break = false;;
     public:
-        void CreateCommand(std::string command, std::string description, std::function<void(std::vector<std::string>)> function)
+        void CreateCommand(std::string commnad, std::function<void(std::vector<std::string>)> function)
         {
-            int checker = this->CheckIfExists(command);
+            int checker = this->CheckIfExists(commnad);
 
             if (checker != -1)
             {
                 this->_commands.at(checker).executor = function;
-                this->_commands.at(checker).description = description;
             }
             else
             {
-                Command newCommand = { command, description, function };
+                Command newCommand = { commnad, function };
 
                 this->_commands.push_back(newCommand);
             }
@@ -97,10 +95,6 @@ namespace misc
         void Exit()
         {
             this->_break = true;
-        }
-
-        std::vector<Command> DropCommands() {
-            return this->_commands;
         }
     };
 }
