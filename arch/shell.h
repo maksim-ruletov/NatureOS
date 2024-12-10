@@ -20,6 +20,7 @@
 #include "./commands/install.h"
 #include "./commands/detect.h"
 #include "./commands/testw.h"
+#include "./commands/date.h"
 
 namespace arch {
     class Shell
@@ -31,24 +32,29 @@ namespace arch {
 
             misc::Clear();
 
-            tty.SetScreenPrefix(misc::ColorizeFont("nshell", 104, 55, 79) + "> ");
+            tty.SetScreenPrefix(misc::ColorizeFont("$", 104, 55, 79) + "> ");
 
             misc::Output(misc::ColorizeFont("Welcome to NatureOS shell!\n", 255, 0, 0));
 
-            tty.CreateCommand("help", &arch::command::Help);
+            tty.CreateCommand("help", "full NatureOS list of commands", [&tty](std::vector<std::string> arguments)
+            {
+                arch::command::Help(arguments, tty.DropCommands());
+            });
 
-            tty.CreateCommand("sys", &arch::command::Sys);
+            tty.CreateCommand("sys", "information about system", &arch::command::Sys);
 
-            tty.CreateCommand("install", &arch::command::Install);
+            tty.CreateCommand("install", "install the NatureOS", &arch::command::Install);
 
-            tty.CreateCommand("detect", &arch::command::Detect);
+            tty.CreateCommand("detect", "detect already installed NatureOS", &arch::command::Detect);
 
-            tty.CreateCommand("testw", &arch::command::Testw);
+            tty.CreateCommand("testw", "test system perfomance", &arch::command::Testw);
 
-            tty.CreateCommand("exit", [&tty](std::vector<std::string> arguments)
+            tty.CreateCommand("exit", "log out from NatureOS", [&tty](std::vector<std::string> arguments)
             {
                 tty.Exit();
             });
+
+            tty.CreateCommand("date", "print current date", &arch::command::Date);
 
             tty.StartInteractive();
         }
