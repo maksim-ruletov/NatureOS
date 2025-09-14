@@ -23,9 +23,9 @@ namespace misc
         std::string _screenPrefix = "";
         bool _break = false;;
     public:
-        void CreateCommand(std::string commnad, std::function<void(std::vector<std::string>)> function)
+        void CreateCommand(std::string command, std::function<void(std::vector<std::string>)> function)
         {
-            int checker = this->CheckIfExists(commnad);
+            int checker = this->CheckIfExists(command);
 
             if (checker != -1)
             {
@@ -33,7 +33,7 @@ namespace misc
             }
             else
             {
-                Command newCommand = { commnad, function };
+                Command newCommand = { command, function };
 
                 this->_commands.push_back(newCommand);
             }
