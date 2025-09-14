@@ -7,16 +7,18 @@
 
 namespace arch
 {
-    const std::string SysVersion = "0.4.0";
+    const std::string SysVersion = "0.4.2";
     const std::string SysName = "Nature OS (POS)";
-    const std::string SysAuthor = "ruletkasuperstar";
+    const std::string SysAuthor = "Maksim Ruletow";
 
     std::string StringifyInfo()
     {
         std::string output = "| " + misc::ColorizeFont(SysVersion, 100, 0, 10) + " | " + misc::ColorizeFont(SysName, 100, 0, 10) + " |\n";
         output += "Made by " + misc::ColorizeFont(SysAuthor, 255, 0, 0) + "\n\n";
         output += misc::ColorizeBackground("   ", 255, 0, 0) + misc::ColorizeBackground("   ", 0, 255, 0) + misc::ColorizeBackground("   ", 0, 0, 255)
-                  + misc::ColorizeBackground("   ", 255, 255, 0) + misc::ColorizeBackground("   ", 0, 255, 255) + misc::ColorizeBackground("   ", 255, 255, 255) + "\n\n";
+                  + misc::ColorizeBackground("   ", 255, 255, 0) + misc::ColorizeBackground("   ", 0, 255, 255) + misc::ColorizeBackground("   ", 255, 255, 255) + "\n";
+        output += misc::ColorizeBackground("   ", 127, 0, 127) + misc::ColorizeBackground("   ", 127, 127, 0) + misc::ColorizeBackground("   ", 0, 127, 127)
+                  + misc::ColorizeBackground("   ", 255, 0, 127) + misc::ColorizeBackground("   ", 255, 127, 0) + misc::ColorizeBackground("   ", 0, 127, 255) + "\n\n";
 
         return output;
     }

@@ -3,6 +3,8 @@
 #include "./translated/createFile.h"
 #include "./translated/createDirectory.h"
 
+#pragma once
+
 #include <vector>
 #include <string>
 

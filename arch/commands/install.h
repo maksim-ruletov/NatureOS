@@ -10,7 +10,7 @@
 
 #include "../../installer/main.h"
 
-#include "../fs/translated.h"
+#include "../../fs/translated.h"
 
 namespace arch
 {
